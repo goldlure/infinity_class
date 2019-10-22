@@ -1,12 +1,14 @@
 package com.companyname.appname;
 
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+
 /**
  * Hello world!
  *
  */
-public class App 
-{
-    public static void main( String[] args )
+public class App {
+    public static void main(String[] args) throws InterruptedException, ExecutionException
     {
         System.out.println( "Hello World!" );
         EnumExample enumExample = new EnumExample(Planet.EARTH);
@@ -27,5 +29,27 @@ public class App
             }
         };
         System.out.println(calc2.add(100,100));
+
+        NavigableSet<Integer> ns = new TreeSet<>(); 
+        for (int i = 0; i <10; i++){
+            ns.add(i);
+        }
+        System.out.println(ns);
+        System.out.println(ns.lower(4));
+        System.out.println(ns.higher(4));
+        System.out.println(ns.tailSet(4));
+
+        Integer[] nums = {1, 2, 3, 4};
+        List<Integer> numList = new ArrayList<>(Arrays.asList(nums));
+        numList.add(9);
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i <100; i++){
+            list1.add(i);
+            list2.add(i);
+        }
+                
+        ListJava.checkList(list1);
+        ListJava.checkList(list2);
     }
 }
